@@ -6,7 +6,7 @@
 /*   By: fbesson <fbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 14:22:50 by fbesson           #+#    #+#             */
-/*   Updated: 2022/12/13 16:27:43 by fbesson          ###   ########.fr       */
+/*   Updated: 2022/12/14 15:47:49 by fbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,21 @@
 
 int	ft_conversions(const char c, va_list *args)
 {
-	unsigned long		ptr;
-
 	if (c == 'c')
 		return (ft_putchar(va_arg(*args, int)));
-	else if (c == 's')
+	if (c == 's')
 		return (ft_putstr(va_arg(*args, char *)));
-	else if (c == 'p')
-	{
-		ptr = (unsigned long)va_arg(*args, void *);
-		if (!ptr)
-			return (write(1, "(nil)", 5));
-		return (ft_putstr("0x") \
-			+ ft_putnbr(ptr, 16, 0));
-	}
-	else if (c == 'd' || c == 'i')
+	if (c == 'p')
+		return (ft_putptr(args));
+	if (c == 'd' || c == 'i')
 		return (ft_putdecimal(args));
-	else if (c == 'u')
+	if (c == 'u')
 		return (ft_putnbr(va_arg(*args, unsigned int), 10, 0));
-	else if (c == 'x' || c == 'X')
+	if (c == 'x' || c == 'X')
 		return (ft_putnbr(va_arg(*args, unsigned int), 16, c == 'X'));
-	else if (c == '%')
+	if (c == '%')
 		return (ft_putchar('%'));
-	return (ft_putchar(c));
+	return (0);
 }
 
 int	ft_printf(const char *format, ...)

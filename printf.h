@@ -6,7 +6,7 @@
 /*   By: fbesson <fbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:02:29 by fbesson           #+#    #+#             */
-/*   Updated: 2022/12/13 16:09:43 by fbesson          ###   ########.fr       */
+/*   Updated: 2022/12/14 15:39:40 by fbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		ft_putchar(int c);
 int		ft_putstr(const char *str);
 int		ft_putnbr(unsigned long nb, unsigned int base, int X);
 int		ft_putdecimal(va_list *args);
+int		ft_putptr(va_list *args);
 
 #endif
