@@ -6,7 +6,7 @@
 /*   By: fbesson <fbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 14:22:50 by fbesson           #+#    #+#             */
-/*   Updated: 2022/12/14 15:47:49 by fbesson          ###   ########.fr       */
+/*   Updated: 2023/02/02 14:30:44 by fbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (format[++i])
 	{
+
 		if (format[i] == '%')
 			len_output += ft_conversions(format[++i], &args);
 		else
@@ -50,3 +51,10 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len_output);
 }
+
+/* void	main(void) */
+/* { */
+/* 	char *str = "hello"; */
+/* 	int	a = 42; */
+/* 	ft_printf("%s",str); */
+/* } */
